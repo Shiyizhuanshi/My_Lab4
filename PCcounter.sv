@@ -1,5 +1,5 @@
 module PCcounter #(
-    parameter WIDTH = 32 // the length of pc and imme
+    parameter WIDTH = 29 // the length of pc and imme
 )(
     input logic clk,
     input logic rst,

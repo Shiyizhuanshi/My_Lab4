@@ -1,9 +1,9 @@
 module rom #(
-    parameter ADDRESS_WIDTH = 32, //should be in the same length as PC
+    parameter ADDRESS_WIDTH = 29, //should be in the same length as PC
               DATA_WIDTH    = 32
 )(
     input logic  [ADDRESS_WIDTH-1:0]  addr,
-    output logic [DATA_WIDTH-1:0]     dout,
+    output logic [DATA_WIDTH-1:0]     dout
 
 );
 
