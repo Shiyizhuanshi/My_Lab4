@@ -1,5 +1,5 @@
 module rom #(
-    parameter ADDRESS_WIDTH = 29, //should be in the same length as PC
+    parameter ADDRESS_WIDTH = 8, //should be in the same length as PC
               DATA_WIDTH    = 32
 )(
     input logic  [ADDRESS_WIDTH-1:0]  addr,
@@ -15,6 +15,6 @@ initial begin
 end;
 
 always_comb begin
-    dout <= rom_array [addr];    
-    end   
+    dout <= rom_array [addr[7:0]];    
+    end
 endmodule

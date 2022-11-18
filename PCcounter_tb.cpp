@@ -25,7 +25,7 @@ int main(int argc, char **argv, char **env) {
   vbdSetMode(1);        // Flag mode set to one-shot
 
   // initialize simulation inputs
-  top->PC = 0;
+
   top->ImmOp = 0;
   top->PCsrc = 0;
 

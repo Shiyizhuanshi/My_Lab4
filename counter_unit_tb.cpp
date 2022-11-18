@@ -1,6 +1,6 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
-#include "Vcounter.h"
+#include "Vcounter_unit.h"
 
 #include "vbuddy.cpp"     // include vbuddy code
 #define MAX_SIM_CYC 100000
@@ -12,20 +12,19 @@ int main(int argc, char **argv, char **env) {
 
   Verilated::commandArgs(argc, argv);
   // init top verilog instance
-  Vcounter * top = new Vcounter;
+  Vcounter_unit * top = new Vcounter_unit;
   // init trace dump
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
   top->trace (tfp, 99);
-  tfp->open ("counter.vcd");
+  tfp->open ("counter_unit.vcd");
  
   // init Vbuddy
   if (vbdOpen()!=1) return(-1);
-  vbdHeader("L4:counter");
+  vbdHeader("L4:counter_unit");
   vbdSetMode(1);        // Flag mode set to one-shot
 
   // initialize simulation inputs
-  top->PC = 0;
   top->ImmOp = 0;
   top->PCsrc = 0;
 
@@ -45,7 +44,7 @@ int main(int argc, char **argv, char **env) {
     // vbdHex(3, (int(top->next_PC) >> 8) & 0xF);
     // vbdHex(2, (int(top->next_PC) >> 4) & 0xF);
     // vbdHex(1, int(top->next_PC) & 0xF);
-    vbdPlot(int(top->next_PC), 0, 255);
+    vbdPlot(int(top->PC), 0, 255);
 
     // vbdHex(4, (int(top->SUM) >> 4) & 0xF);
     // vbdHex(3, int(top->SUM) & 0xF);  
@@ -55,8 +54,15 @@ int main(int argc, char **argv, char **env) {
 
 
     // set up input signals of testbench
-    top->PC = top->next_PC;
-    top->rst = (simcyc < 2) || top->next_PC >= 255;    // assert reset for 1st cycle
+    if (top->PC >= 64) {
+      top->ImmOp = 64;
+      top->PCsrc = 1;
+    }
+    else {
+      top->PCsrc = 0;
+      top->ImmOp = 64;
+    }
+    top->rst = (simcyc < 2) || (top->PC>= 255);    // assert reset for 1st cycle
     vbdCycle(simcyc);
 
     if (Verilated::gotFinish())  exit(0);
