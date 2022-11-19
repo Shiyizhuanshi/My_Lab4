@@ -1,4 +1,4 @@
-module rom #(
+module instr_rom #(
     parameter ADDRESS_WIDTH = 8, //should be in the same length as PC
               DATA_WIDTH    = 32
 )(
@@ -10,7 +10,7 @@ module rom #(
 logic [DATA_WIDTH-1:0] rom_array [2**ADDRESS_WIDTH-1:0];
 
 initial begin
-        $display("Loading rom.");
+        $display("Loading Instr_mem.");
         $readmemh("instruction.mem", rom_array);  //read instruction into rom
 end;
 
