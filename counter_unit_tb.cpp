@@ -40,11 +40,11 @@ int main(int argc, char **argv, char **env) {
     }
 
 
-    // vbdHex(4, (int(top->next_PC) >> 16) & 0xF);
-    // vbdHex(3, (int(top->next_PC) >> 8) & 0xF);
-    // vbdHex(2, (int(top->next_PC) >> 4) & 0xF);
-    // vbdHex(1, int(top->next_PC) & 0xF);
-    vbdPlot(int(top->PC), 0, 255);
+    vbdHex(4, (int(top->PC) >> 16) & 0xF);
+    vbdHex(3, (int(top->PC) >> 8) & 0xF);
+    vbdHex(2, (int(top->PC) >> 4) & 0xF);
+    vbdHex(1, int(top->PC) & 0xF);
+    // vbdPlot(int(top->PC), 0, 255);
 
     // vbdHex(4, (int(top->SUM) >> 4) & 0xF);
     // vbdHex(3, int(top->SUM) & 0xF);  

@@ -41,11 +41,12 @@ int main(int argc, char **argv, char **env) {
     }
 
 
+
     vbdHex(4, (int(top->instr) >> 16) & 0xF);
     vbdHex(3, (int(top->instr) >> 8) & 0xF);
     vbdHex(2, (int(top->instr) >> 4) & 0xF);
     vbdHex(1, int(top->instr) & 0xF);
-    // vbdPlot(int(top->next_PC), 0, 255);
+    // vbdPlot(int(top->instr), 0, 255);
 
     // vbdHex(4, (int(top->SUM) >> 4) & 0xF);
     // vbdHex(3, int(top->SUM) & 0xF);  

@@ -13,20 +13,23 @@ module RegFile #(
     output logic [D_WIDTH-1:0] a0
 );
 
-reg [D_WIDTH-1:0] reg_file [2**A_WIDTH -1:0];
+reg [D_WIDTH-1:0] reg_file [31:0];
 
-initial begin
-    // for (i = 0; i < 2**A_WIDTH -1; i++){
-    //     reg_file[i] <= 32'b0
-    // }
-    $display("Loading RegFile.");
-    $readmemh("RegFile.mem", reg_file);
-end;
+
+
+// initial begin
+//     // for (i = 0; i < 2**A_WIDTH -1; i++){
+//     //     reg_file[i] <= 32'b0
+//     // }
+//     $display("Loading RegFile.");
+//     $readmemh("RegFile.mem", reg_file);
+// end;
+assign reg_file[0] = 32'b0;
 
 always_ff @( posedge clk ) begin 
-    RD1 <= reg_file[AD1];
-    RD2 <= reg_file[AD2];
-    if (WE3) reg_file[AD3] <= WD3;
-    a0 <= reg_file[10];
+    RD1 = reg_file[AD1];
+    RD2 = reg_file[AD2];
+    if (WE3) reg_file[AD3] = WD3;
+    a0 <= reg_file[0];
 end
 endmodule

@@ -16,9 +16,10 @@ module counter_unit #(
 // assign next_PC = PCsrc ? branch_PC : PC + {{PC_WIDTH-1{1'b0}}, 1'b1};    //compute inc_PC
 
 always_ff @ (posedge clk)begin
-  if (rst)      PC <= {PC_WIDTH{1'b0}};
-  else if (PCsrc)    PC <= PC + ImmOp;
-  else          PC <= PC + 4;
+  if (rst)           PC <= {PC_WIDTH{1'b0}};
+  else PC <= PCsrc ? PC + ImmOp : PC + 4;
+  // else if (PCsrc)    PC <= PC + ImmOp;
+  // else               PC <= PC + 4;
 end
 
 
