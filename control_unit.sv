@@ -11,13 +11,46 @@ module control_unit #(
 );
 
 always_comb
-    begin                        // add      0110011
-    PCsrc = instr[6];            //addi      0010011
-    ALUsrc = ~instr[6];           //branch    1100011
-    ALUctrl = instr[14:12];      //          ||^ PCsrc
-    RegWrite = ~instr[6];        //          |^   not ALUsrc
-    ImmSrc = instr[6];          //          ^ not RegWrite 
-    end                          //          ALUctrl: funct3
+
+    case(instr[6:0])
+    7'b0010011:begin //addi
+    RegWrite = 1;
+    ImmSrc = 1;
+    ALUsrc = 1;
+    end
+
+    7'b1100011:begin //bne
+    RegWrite = 0;
+    PCsrc = ~EQ;
+    ImmSrc = 1;
+    ALUsrc = 0;
+    end
+
+    7'b0000001:begin //load
+    RegWrite = 1;
+    ImmSrc = 1;
+    ALUsrc = 1;
+    end
+
+    default:begin
+    ALUctrl = instr[14:12];
+    ImmSrc = 1;
+    PCsrc = 0;
+    end
+
+    endcase
+
+
+
+
+
+    // begin                        // add      0110011
+    // PCsrc = instr[6];            //addi      0010011
+    // ALUsrc = ~instr[6];           //branch    1100011
+    // ALUctrl = instr[14:12];      //          ||^ PCsrc
+    // RegWrite = ~instr[6];        //          |^   not ALUsrc
+    // ImmSrc = instr[6];          //          ^ not RegWrite 
+    // end                          //          ALUctrl: funct3
 
 endmodule
 
@@ -25,7 +58,7 @@ endmodule
 
 
 
-// 000 0001 load
+// 000 0011 load
 // 001 0011 addi
 // 110 0011 bne
 // ^^ ~RegWrite

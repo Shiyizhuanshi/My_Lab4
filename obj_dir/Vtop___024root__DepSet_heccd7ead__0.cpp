@@ -15,20 +15,21 @@ VL_INLINE_OPT void Vtop___024root___sequent__TOP__0(Vtop___024root* vlSelf) {
         [(0x1fU & (vlSelf->top__DOT__instr >> 0xfU))];
     vlSelf->top__DOT__RD2 = vlSelf->top__DOT__register_file__DOT__reg_file
         [(0x1fU & (vlSelf->top__DOT__instr >> 0x14U))];
-    if ((1U & (~ (vlSelf->top__DOT__instr >> 6U)))) {
+    if (vlSelf->top__DOT__RegWrite) {
         vlSelf->top__DOT__register_file__DOT__reg_file[(0x1fU 
                                                         & (vlSelf->top__DOT__instr 
                                                            >> 7U))] 
             = vlSelf->top__DOT__ALUout;
     }
-    vlSelf->top__DOT__out = vlSelf->top__DOT__register_file__DOT__reg_file
+    vlSelf->top__DOT____Vcellout__register_file__a0 
+        = vlSelf->top__DOT__register_file__DOT__reg_file
         [0U];
     vlSelf->top__DOT__PC = ((IData)(vlSelf->rst) ? 0U
-                             : ((0x40U & vlSelf->top__DOT__instr)
+                             : ((IData)(vlSelf->top__DOT__PCsrc)
                                  ? (vlSelf->top__DOT__PC 
                                     + vlSelf->top__DOT__ImmOp)
                                  : ((IData)(4U) + vlSelf->top__DOT__PC)));
-    vlSelf->testPC = (0xffffU & vlSelf->top__DOT__PC);
+    vlSelf->a0 = (0x1ffffU & vlSelf->top__DOT____Vcellout__register_file__a0);
     vlSelf->top__DOT__instr = ((vlSelf->top__DOT__instr_mem__DOT__rom_array
                                 [(0xffU & vlSelf->top__DOT__PC)] 
                                 << 0x18U) | ((vlSelf->top__DOT__instr_mem__DOT__rom_array
@@ -45,33 +46,60 @@ VL_INLINE_OPT void Vtop___024root___sequent__TOP__0(Vtop___024root* vlSelf) {
                                                 [(0xffU 
                                                   & ((IData)(3U) 
                                                      + vlSelf->top__DOT__PC))])));
-    vlSelf->a0 = (0xffffU & vlSelf->top__DOT__instr);
-    if ((0x40U & vlSelf->top__DOT__instr)) {
-        vlSelf->top__DOT__ImmOp = VL_EXTENDS_II(32,12, 
-                                                (vlSelf->top__DOT__instr 
-                                                 >> 0x14U));
-        vlSelf->top__DOT__ALU__DOT__ALUop2 = vlSelf->top__DOT__RD2;
-    } else {
-        vlSelf->top__DOT__ImmOp = VL_EXTENDS_II(32,12, 
-                                                ((0x800U 
-                                                  & (vlSelf->top__DOT__instr 
-                                                     >> 0x14U)) 
-                                                 | ((0x400U 
-                                                     & (vlSelf->top__DOT__instr 
-                                                        << 3U)) 
-                                                    | ((0x3f0U 
-                                                        & (vlSelf->top__DOT__instr 
-                                                           >> 0x15U)) 
-                                                       | (0xfU 
-                                                          & (vlSelf->top__DOT__instr 
-                                                             >> 8U))))));
-        vlSelf->top__DOT__ALU__DOT__ALUop2 = vlSelf->top__DOT__ImmOp;
+    if ((0x13U == (0x7fU & vlSelf->top__DOT__instr))) {
+        vlSelf->top__DOT__RegWrite = 1U;
+        vlSelf->top__DOT__ALUsrc = 1U;
+    } else if ((0x63U == (0x7fU & vlSelf->top__DOT__instr))) {
+        vlSelf->top__DOT__RegWrite = 0U;
+        vlSelf->top__DOT__ALUsrc = 0U;
+    } else if ((1U == (0x7fU & vlSelf->top__DOT__instr))) {
+        vlSelf->top__DOT__RegWrite = 1U;
+        vlSelf->top__DOT__ALUsrc = 1U;
     }
-    vlSelf->top__DOT__ALUout = ((0x1000U & vlSelf->top__DOT__instr)
+    vlSelf->top__DOT__ImmOp = ((IData)(vlSelf->top__DOT__ImmSrc)
+                                ? (((- (IData)((vlSelf->top__DOT__instr 
+                                                >> 0x1fU))) 
+                                    << 0xcU) | (vlSelf->top__DOT__instr 
+                                                >> 0x14U))
+                                : (((- (IData)((vlSelf->top__DOT__instr 
+                                                >> 0x1fU))) 
+                                    << 0xcU) | ((0x800U 
+                                                 & (vlSelf->top__DOT__instr 
+                                                    >> 0x14U)) 
+                                                | ((0x400U 
+                                                    & (vlSelf->top__DOT__instr 
+                                                       << 3U)) 
+                                                   | ((0x3f0U 
+                                                       & (vlSelf->top__DOT__instr 
+                                                          >> 0x15U)) 
+                                                      | (0xfU 
+                                                         & (vlSelf->top__DOT__instr 
+                                                            >> 8U)))))));
+    vlSelf->top__DOT__ALU__DOT__ALUop2 = ((IData)(vlSelf->top__DOT__ALUsrc)
+                                           ? vlSelf->top__DOT__ImmOp
+                                           : vlSelf->top__DOT__RD2);
+    if ((0x13U != (0x7fU & vlSelf->top__DOT__instr))) {
+        if ((0x63U != (0x7fU & vlSelf->top__DOT__instr))) {
+            if ((1U != (0x7fU & vlSelf->top__DOT__instr))) {
+                vlSelf->top__DOT____Vcellout__encoder__ALUctrl 
+                    = (7U & (vlSelf->top__DOT__instr 
+                             >> 0xcU));
+            }
+        }
+    }
+    vlSelf->top__DOT__ALUout = ((1U & (IData)(vlSelf->top__DOT____Vcellout__encoder__ALUctrl))
                                  ? (vlSelf->top__DOT__RD1 
-                                    + vlSelf->top__DOT__ALU__DOT__ALUop2)
+                                    - vlSelf->top__DOT__ALU__DOT__ALUop2)
                                  : (vlSelf->top__DOT__RD1 
-                                    - vlSelf->top__DOT__ALU__DOT__ALUop2));
+                                    + vlSelf->top__DOT__ALU__DOT__ALUop2));
+    vlSelf->top__DOT__EQ = (vlSelf->top__DOT__RD1 == vlSelf->top__DOT__ALU__DOT__ALUop2);
+    if ((0x13U != (0x7fU & vlSelf->top__DOT__instr))) {
+        if ((0x63U == (0x7fU & vlSelf->top__DOT__instr))) {
+            vlSelf->top__DOT__PCsrc = (1U & (~ (IData)(vlSelf->top__DOT__EQ)));
+        } else if ((1U != (0x7fU & vlSelf->top__DOT__instr))) {
+            vlSelf->top__DOT__PCsrc = 0U;
+        }
+    }
 }
 
 void Vtop___024root___eval(Vtop___024root* vlSelf) {

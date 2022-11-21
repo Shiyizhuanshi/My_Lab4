@@ -4,8 +4,7 @@ module top #(
 )(
     input  logic        clk,
     input  logic        rst,
-    output logic [16:0] a0,
-    output logic [15:0] testPC
+    output logic [16:0] a0
 );
 
 logic [D_WIDTH-1:0] PC;
@@ -26,8 +25,6 @@ logic [D_WIDTH-1:0] ALUout;
 logic [D_WIDTH-1:0] instr;
 logic [D_WIDTH-1:0] out;
 
-assign testPC = PC[15:0];
-assign a0 = instr[15:0];
 
 counter_unit pc_counter(
     .clk(clk),
@@ -61,7 +58,7 @@ RegFile register_file(
     .RD1(RD1),
     .RD2(RD2),
     .WD3(ALUout),
-    .a0(out)
+    .a0(a0)
 );
 
 signextend extend(
