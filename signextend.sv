@@ -7,7 +7,7 @@ module signextend #(
 );
 
 
-assign ImmOp = ImmSrc ? { {20{instr[31]}}, instr[31:20] } : { {20{instr[31]}}, instr[31], instr[7], instr[30:25], instr[11:8] }; //{instr[31], instr[7], instr[30:25], instr[11:8]};     
+assign ImmOp = ImmSrc ? { {20{instr[31]}}, instr[31:20] } : { {20{instr[31]}}, instr[31], instr[7], instr[30:25], instr[11:8], 1'b0 }; //{instr[31], instr[7], instr[30:25], instr[11:8]};     
 
     // assign a = {20'hFFFFF, instr}
     // assign b = {20'h0, instr}  

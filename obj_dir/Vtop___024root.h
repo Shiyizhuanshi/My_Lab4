@@ -30,11 +30,9 @@ class Vtop___024root final : public VerilatedModule {
     IData/*31:0*/ top__DOT__PC;
     IData/*31:0*/ top__DOT__ImmOp;
     IData/*31:0*/ top__DOT__RD1;
-    IData/*31:0*/ top__DOT__RD2;
     IData/*31:0*/ top__DOT__ALUout;
     IData/*31:0*/ top__DOT__instr;
     IData/*31:0*/ top__DOT__out;
-    IData/*31:0*/ top__DOT____Vcellout__register_file__a0;
     IData/*31:0*/ top__DOT__ALU__DOT__ALUop2;
     VlUnpacked<CData/*7:0*/, 256> top__DOT__instr_mem__DOT__rom_array;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__register_file__DOT__reg_file;

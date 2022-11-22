@@ -27,9 +27,15 @@ reg [D_WIDTH-1:0] reg_file [31:0];
 assign reg_file[0] = 32'b0;
 
 always_ff @( posedge clk ) begin 
+
+    if (WE3) reg_file[AD3] = WD3;
+    
+end
+
+always_comb begin
     RD1 = reg_file[AD1];
     RD2 = reg_file[AD2];
-    if (WE3) reg_file[AD3] = WD3;
     a0 <= reg_file[0];
 end
+
 endmodule
