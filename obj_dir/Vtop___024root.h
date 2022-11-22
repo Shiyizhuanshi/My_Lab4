@@ -19,23 +19,29 @@ class Vtop___024root final : public VerilatedModule {
     CData/*0:0*/ top__DOT__EQ;
     CData/*0:0*/ top__DOT__RegWrite;
     CData/*0:0*/ top__DOT__ALUsrc;
-    CData/*0:0*/ top__DOT__ImmSrc;
+    CData/*0:0*/ top__DOT__ResultSrc;
+    CData/*1:0*/ top__DOT__ImmSrc;
     CData/*4:0*/ top__DOT__AD1;
     CData/*4:0*/ top__DOT__AD2;
     CData/*4:0*/ top__DOT__AD3;
-    CData/*4:0*/ top__DOT__WD3;
+    CData/*0:0*/ top__DOT__Data_WE;
     CData/*2:0*/ top__DOT____Vcellout__encoder__ALUctrl;
+    CData/*7:0*/ top__DOT__data_mem__DOT__short_addr;
     CData/*0:0*/ __Vclklast__TOP__clk;
     VL_OUT(a0,16,0);
     IData/*31:0*/ top__DOT__PC;
     IData/*31:0*/ top__DOT__ImmOp;
     IData/*31:0*/ top__DOT__RD1;
+    IData/*31:0*/ top__DOT__RD2;
     IData/*31:0*/ top__DOT__ALUout;
     IData/*31:0*/ top__DOT__instr;
     IData/*31:0*/ top__DOT__out;
+    IData/*31:0*/ top__DOT__Data_addr;
+    IData/*31:0*/ top__DOT__Data_RD;
     IData/*31:0*/ top__DOT__ALU__DOT__ALUop2;
     VlUnpacked<CData/*7:0*/, 256> top__DOT__instr_mem__DOT__rom_array;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__register_file__DOT__reg_file;
+    VlUnpacked<CData/*7:0*/, 256> top__DOT__data_mem__DOT__data_mem;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
 
     // INTERNAL VARIABLES

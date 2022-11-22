@@ -4,10 +4,11 @@ module control_unit #(
     input  logic           EQ,
     input  logic [Wid-1:0] instr,
     output logic           RegWrite,
+    output logic           ResultSrc,
     output logic           ALUsrc,
     output logic           PCsrc,
     output logic [2:0]     ALUctrl,
-    output logic           ImmSrc
+    output logic [1:0]     ImmSrc
 );
 
 always_comb
@@ -17,37 +18,51 @@ always_comb
     7'b0010011:begin //addi
     ALUctrl = instr[14:12];
     RegWrite = 1;
-    ImmSrc = 1;
+    ImmSrc = 00;
     ALUsrc = 1;
     PCsrc = 0;
+    ResultSrc = 0;
+    end
+
+    7'b0000011:begin //lw
+    ALUctrl = instr[14:12];
+    RegWrite = 1;
+    ImmSrc = 00;
+    ALUsrc = 1;
+    PCsrc = 0;
+    ResultSrc = 1;
     end
 
     7'b1100011:begin //bne
     ALUctrl = instr[14:12];
     RegWrite = 0;
     PCsrc = ~EQ;   
-    ImmSrc = 0;
+    ImmSrc = 10;
     ALUsrc = 0;
     end
 
-    7'b0000011:begin //load
+    7'b0100011:begin //sw
     ALUctrl = instr[14:12];
     RegWrite = 1;
-    ImmSrc = 1;
+    ImmSrc = 01;
     ALUsrc = 1;
     PCsrc = 0;
     end
 
+
+
     default:begin
     ALUctrl = instr[14:12];
-    ImmSrc = 1;
+    ImmSrc = 00;
     PCsrc = 0;
     RegWrite = 0;
     ALUsrc = 0;
+    ResultSrc = 0;
     end
 
     endcase
 
+    // Immsrc 00 for lw and addi, 01 for sw, 10 for bne 
 
 
 
@@ -63,13 +78,3 @@ always_comb
 endmodule
 
 
-
-
-
-// 000 0011 load
-// 001 0011 addi
-// 110 0011 bne
-// ^^ ~RegWrite
-// ^^ PCsrc
-// ^^ ~ALUsrc
-// ^^ ~Immsrc

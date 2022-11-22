@@ -9,21 +9,26 @@ module top #(
 
 logic [D_WIDTH-1:0] PC;
 logic [D_WIDTH-1:0] ImmOp;
-logic PCsrc;
-logic EQ;
-logic RegWrite;
-logic ALUctrl;
-logic ALUsrc;
-logic ImmSrc;
+logic               PCsrc;
+logic               EQ;
+logic               RegWrite;
+logic               ALUctrl;
+logic               ALUsrc;
+logic               ResultSrc;
+logic [1:0]         ImmSrc;
 logic [A_WIDTH-1:0] AD1;
 logic [A_WIDTH-1:0] AD2;
 logic [A_WIDTH-1:0] AD3;
-logic [A_WIDTH-1:0] WD3;
 logic [D_WIDTH-1:0] RD1;
 logic [D_WIDTH-1:0] RD2;
 logic [D_WIDTH-1:0] ALUout;
 logic [D_WIDTH-1:0] instr;
 logic [D_WIDTH-1:0] out;
+
+logic               Data_WE;
+logic [D_WIDTH-1:0] Data_addr;
+logic [D_WIDTH-1:0] Data_RD;
+
 
 
 counter_unit pc_counter(
@@ -46,7 +51,8 @@ control_unit encoder(
     .ALUsrc(ALUsrc),
     .PCsrc(PCsrc),
     .ALUctrl(ALUctrl),
-    .ImmSrc(ImmSrc)
+    .ImmSrc(ImmSrc),
+    .ResultSrc(ResultSrc)
 );
 
 RegFile register_file(
@@ -57,7 +63,9 @@ RegFile register_file(
     .AD3(instr[11:7]),
     .RD1(RD1),
     .RD2(RD2),
-    .WD3(ALUout),
+    .ALUout(ALUout),
+    .Data_RD(Data_RD),
+    .ResultSrc(ResultSrc),
     .a0(a0)
 );
 
@@ -75,6 +83,14 @@ ALU_unit ALU(
     .ALUout(ALUout),
     .ALUsrc(ALUsrc),
     .EQ(EQ)
+);
+
+data_ram data_mem(
+    .clk(clk),
+    .Data_WE(Data_WE),
+    .Data_addr(ALUout),
+    .Data_RD(Data_RD),
+    .Data_WD(RD2)
 );
 
 
