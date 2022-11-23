@@ -26,8 +26,8 @@ class Vtop___024root final : public VerilatedModule {
     CData/*4:0*/ top__DOT__AD3;
     CData/*0:0*/ top__DOT__Data_WE;
     CData/*2:0*/ top__DOT____Vcellout__encoder__ALUctrl;
-    CData/*7:0*/ top__DOT__data_mem__DOT__short_addr;
     CData/*0:0*/ __Vclklast__TOP__clk;
+    SData/*9:0*/ top__DOT__data_mem__DOT__short_addr;
     VL_OUT(a0,16,0);
     IData/*31:0*/ top__DOT__PC;
     IData/*31:0*/ top__DOT__ImmOp;
@@ -41,7 +41,7 @@ class Vtop___024root final : public VerilatedModule {
     IData/*31:0*/ top__DOT__ALU__DOT__ALUop2;
     VlUnpacked<CData/*7:0*/, 256> top__DOT__instr_mem__DOT__rom_array;
     VlUnpacked<IData/*31:0*/, 32> top__DOT__register_file__DOT__reg_file;
-    VlUnpacked<CData/*7:0*/, 256> top__DOT__data_mem__DOT__data_mem;
+    VlUnpacked<SData/*9:0*/, 1024> top__DOT__data_mem__DOT__data_mem;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
 
     // INTERNAL VARIABLES

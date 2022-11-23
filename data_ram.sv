@@ -10,8 +10,8 @@ module data_ram #(
 );
 
 
-logic [7:0] data_mem [2**8-1:0];
-logic [7:0] short_addr;
+logic [9:0] data_mem [2**10-1:0];
+logic [9:0] short_addr;
 
 initial begin
         $display("Loading Data_mem.");

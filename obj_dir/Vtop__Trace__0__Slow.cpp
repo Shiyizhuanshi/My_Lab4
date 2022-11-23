@@ -58,7 +58,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBus(c+12,"Data_addr", false,-1, 31,0);
     tracep->declBus(c+11,"Data_WD", false,-1, 31,0);
     tracep->declBus(c+15,"Data_RD", false,-1, 31,0);
-    tracep->declBus(c+18,"short_addr", false,-1, 7,0);
+    tracep->declBus(c+18,"short_addr", false,-1, 9,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("encoder ");
     tracep->declBus(c+61,"Wid", false,-1, 31,0);
@@ -169,7 +169,7 @@ VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, Veril
     bufp->fullIData(oldp+15,(vlSelf->top__DOT__Data_RD),32);
     bufp->fullCData(oldp+16,((1U & (IData)(vlSelf->top__DOT____Vcellout__encoder__ALUctrl))),3);
     bufp->fullIData(oldp+17,(vlSelf->top__DOT__ALU__DOT__ALUop2),32);
-    bufp->fullCData(oldp+18,(vlSelf->top__DOT__data_mem__DOT__short_addr),8);
+    bufp->fullSData(oldp+18,(vlSelf->top__DOT__data_mem__DOT__short_addr),10);
     bufp->fullCData(oldp+19,(vlSelf->top__DOT____Vcellout__encoder__ALUctrl),3);
     bufp->fullCData(oldp+20,((0xffU & vlSelf->top__DOT__PC)),8);
     bufp->fullCData(oldp+21,((0x1fU & (vlSelf->top__DOT__instr 

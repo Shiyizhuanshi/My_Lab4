@@ -40,6 +40,7 @@ always_comb
     PCsrc = ~EQ;   
     ImmSrc = 10;
     ALUsrc = 0;
+    ResultSrc = 1;
     end
 
     7'b0100011:begin //sw
@@ -49,6 +50,7 @@ always_comb
     ALUsrc = 1;
     PCsrc = 0;
     Data_WE = 1;
+    ResultSrc = 1;
     end
 
 
