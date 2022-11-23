@@ -53,6 +53,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("data_mem ");
     tracep->declBus(c+61,"WIDTH", false,-1, 31,0);
+    tracep->declBus(c+68,"wanted_width", false,-1, 31,0);
     tracep->declBit(c+58,"clk", false,-1);
     tracep->declBit(c+14,"Data_WE", false,-1);
     tracep->declBus(c+12,"Data_addr", false,-1, 31,0);
@@ -225,4 +226,5 @@ VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, Veril
     bufp->fullCData(oldp+65,(vlSelf->top__DOT__AD3),5);
     bufp->fullIData(oldp+66,(vlSelf->top__DOT__out),32);
     bufp->fullIData(oldp+67,(vlSelf->top__DOT__Data_addr),32);
+    bufp->fullIData(oldp+68,(0xaU),32);
 }

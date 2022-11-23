@@ -1,5 +1,6 @@
 module data_ram #(
-    parameter WIDTH = 32
+    parameter WIDTH = 32,
+              wanted_width = 10
 )(
     input logic                clk,
     input logic                Data_WE,
@@ -10,8 +11,8 @@ module data_ram #(
 );
 
 
-logic [9:0] data_mem [2**10-1:0];
-logic [9:0] short_addr;
+logic [wanted_width-1:0] data_mem [2**10-1:0];
+logic [wanted_width-1:0] short_addr;
 
 initial begin
         $display("Loading Data_mem.");
@@ -19,7 +20,7 @@ initial begin
 end;
 
 always_comb begin
-    short_addr = Data_addr[7:0];
+    short_addr = Data_addr[wanted_width-1:0];
     Data_RD = {data_mem[short_addr], data_mem[short_addr+1], data_mem[short_addr+2], data_mem[short_addr+3]};
 end
 
