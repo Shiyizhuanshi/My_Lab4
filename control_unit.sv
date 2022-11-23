@@ -8,7 +8,8 @@ module control_unit #(
     output logic           ALUsrc,
     output logic           PCsrc,
     output logic [2:0]     ALUctrl,
-    output logic [1:0]     ImmSrc
+    output logic [1:0]     ImmSrc,
+    output logic           Data_WE
 );
 
 always_comb
@@ -43,10 +44,11 @@ always_comb
 
     7'b0100011:begin //sw
     ALUctrl = instr[14:12];
-    RegWrite = 1;
+    RegWrite = 0;
     ImmSrc = 01;
     ALUsrc = 1;
     PCsrc = 0;
+    Data_WE = 1;
     end
 
 
@@ -58,6 +60,7 @@ always_comb
     RegWrite = 0;
     ALUsrc = 0;
     ResultSrc = 0;
+    Data_WE = 0;
     end
 
     endcase

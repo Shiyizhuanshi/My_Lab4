@@ -52,7 +52,8 @@ control_unit encoder(
     .PCsrc(PCsrc),
     .ALUctrl(ALUctrl),
     .ImmSrc(ImmSrc),
-    .ResultSrc(ResultSrc)
+    .ResultSrc(ResultSrc),
+    .Data_WE(Data_WE)
 );
 
 RegFile register_file(
