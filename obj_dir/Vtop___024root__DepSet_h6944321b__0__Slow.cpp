@@ -11,18 +11,18 @@ VL_ATTR_COLD void Vtop___024root___initial__TOP__0(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___initial__TOP__0\n"); );
     // Init
-    VlWide<4>/*127:0*/ __Vtemp_hb2c2e739__0;
+    VlWide<4>/*127:0*/ __Vtemp_haf691150__0;
     // Body
     VL_WRITEF("Loading Data_mem.\n");
     VL_READMEM_N(true, 10, 1024, 0, std::string{"data.mem"}
                  ,  &(vlSelf->top__DOT__data_mem__DOT__data_mem)
                  , 0, ~0ULL);
     VL_WRITEF("Loading Instr_mem.\n");
-    __Vtemp_hb2c2e739__0[0U] = 0x2e6d656dU;
-    __Vtemp_hb2c2e739__0[1U] = 0x74696f6eU;
-    __Vtemp_hb2c2e739__0[2U] = 0x74727563U;
-    __Vtemp_hb2c2e739__0[3U] = 0x696e73U;
-    VL_READMEM_N(true, 8, 256, 0, VL_CVT_PACK_STR_NW(4, __Vtemp_hb2c2e739__0)
+    __Vtemp_haf691150__0[0U] = 0x2e6d656dU;
+    __Vtemp_haf691150__0[1U] = 0x74696f6eU;
+    __Vtemp_haf691150__0[2U] = 0x74727563U;
+    __Vtemp_haf691150__0[3U] = 0x696e73U;
+    VL_READMEM_N(true, 8, 256, 0, VL_CVT_PACK_STR_NW(4, __Vtemp_haf691150__0)
                  ,  &(vlSelf->top__DOT__instr_mem__DOT__rom_array)
                  , 0, ~0ULL);
 }

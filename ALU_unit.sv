@@ -19,3 +19,9 @@ always_comb begin
 end
 
 endmodule
+
+// 000 add
+// 001 sub
+// 010 and
+// 011 or
+// 101 SLT

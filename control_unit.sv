@@ -12,14 +12,34 @@ module control_unit #(
     output logic           Data_WE
 );
 
+logic [2:0] funct3;
+logic [6:0] funct3;
+logic [6:0] opcode;
+assign funct3 = instr[14:12];
+assign opcode = instr[6:0];
+
 always_comb
 
-    case(instr[6:0])
+    case(opcode)
+
+    7'b0110011:    //R-type
+        case(funct3)
+            3'b000:
+            3'b001:
+            3'b010:
+            3'b011:
+            3'b100:
+            3'b101:
+            3'b110:
+            3'b111:
+            default:
+
+
 
     7'b0010011:begin //addi
     ALUctrl = instr[14:12];
     RegWrite = 1;
-    ImmSrc = 00;
+    ImmSrc = 2'b00;
     ALUsrc = 1;
     PCsrc = 0;
     ResultSrc = 0;
@@ -28,7 +48,7 @@ always_comb
     7'b0000011:begin //lw
     ALUctrl = instr[14:12];
     RegWrite = 1;
-    ImmSrc = 00;
+    ImmSrc = 2'b00;
     ALUsrc = 1;
     PCsrc = 0;
     ResultSrc = 1;
@@ -38,7 +58,7 @@ always_comb
     ALUctrl = instr[14:12];
     RegWrite = 0;
     PCsrc = ~EQ;   
-    ImmSrc = 10;
+    ImmSrc = 2'b10;
     ALUsrc = 0;
     ResultSrc = 0;
     end
@@ -46,7 +66,7 @@ always_comb
     7'b0100011:begin //sw
     ALUctrl = instr[14:12];
     RegWrite = 0;
-    ImmSrc = 01;
+    ImmSrc = 2'b01;
     ALUsrc = 1;
     PCsrc = 0;
     Data_WE = 1;
@@ -57,7 +77,7 @@ always_comb
 
     default:begin
     ALUctrl = instr[14:12];
-    ImmSrc = 00;
+    ImmSrc = 2'b00;
     PCsrc = 0;
     RegWrite = 0;
     ALUsrc = 0;
