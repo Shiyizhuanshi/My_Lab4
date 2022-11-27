@@ -43,13 +43,20 @@ imm
 
 Here below are the instructions we need to implement for our cpu:
 
-![image](https://user-images.githubusercontent.com/100481494/204151552-ba9afd53-3290-406c-8eb3-53838dd7fded.png)
+##### R-Type
 
-![image](https://user-images.githubusercontent.com/100481494/204151576-7a491f7a-15b3-4643-bd93-9ce5f26ca807.png)
+![image](https://user-images.githubusercontent.com/100481494/204165782-1fe59283-6ea0-4af5-be5f-f4643ab7e744.png)
 
-![image](https://user-images.githubusercontent.com/100481494/204151582-6e0c5199-ebec-4b87-8e10-4d74f9712004.png)
+##### I & S-Tpye
 
-![image](https://user-images.githubusercontent.com/100481494/204151590-c6d6057b-8492-4645-b08e-7ec69c5a3d50.png)
+![image](https://user-images.githubusercontent.com/100481494/204165825-e5da5872-dd44-4041-ba5e-5756faae755b.png)
+
+##### B-Type
+
+![image](https://user-images.githubusercontent.com/100481494/204165857-76714043-c690-40ba-be09-c8b0dbae533a.png)
+
+##### U & I-Type
+![image](https://user-images.githubusercontent.com/100481494/204165885-30856d47-987e-4807-84f0-b951cbd67e1b.png)
 
 ---
 
@@ -71,7 +78,23 @@ Control unit generates control signal to all other blocks, so in order to implem
 : For R-Type instruciton, we have ten kinds of ALU operations, thus ALUControl should be 4-bit.
 
 **DataCtrl**
-: DataCtrl should be 2-bit as there are three kinds of operations in datamemory: byte, half, work.
+: DataCtrl should be 2-bit as there are three kinds of operations in datamemory: byte, half, word.
+
+While designing the cpu, we should strictly name all the variales as same as in this file.
+
+---
+
+
+#### ALU
+This is almost the most complicated module in our cpu.
+It not only needs to do ten kinds of arithmetric operations but also needs to generates 6 inputs to the [Control signal](/My_Lab4#control-unit) 
+
+
+
+
+
+
+
 
 
 

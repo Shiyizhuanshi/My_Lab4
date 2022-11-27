@@ -73,6 +73,17 @@ always_comb
     ResultSrc = 1;
     end
 
+    // 7'b1100011:             //branch
+    //     case(funct3)
+    //         3'b000:
+    //         3'b001:
+    //         3'b100:
+    //         3'b101:
+    //         3'b110:
+    //         3'b111:
+
+    //     endcase
+
 
 
     default:begin
