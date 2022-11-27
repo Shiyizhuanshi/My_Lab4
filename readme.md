@@ -54,6 +54,17 @@ Here below are the instructions we need to implement for our cpu:
 ---
 
 
+#### Control Unit
+
+Control unit generates control signal to all other blocks, so in order to implement all the instructions, the first step should be fully understanding and specifying what control signal should be genrated under different operations.
+
+##### Control signal 
+
+| Name | PCSrc | ResultSrc | ImmSrc | ALUSrc | ALUctrl | MemWrite | RegWrite | DataCtrl |
+|-----:|---|--|--|--|--|----|----|--|
+| Length | 1 | 1 | 3 | 1 | 4 | 1 | 1 | 2 |
+
+
 
 
 
