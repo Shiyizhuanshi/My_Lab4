@@ -15,17 +15,14 @@ class Vtop___024root final : public VerilatedModule {
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
-    CData/*0:0*/ top__DOT__PCsrc;
     CData/*0:0*/ top__DOT__EQ;
-    CData/*0:0*/ top__DOT__RegWrite;
-    CData/*0:0*/ top__DOT__ALUsrc;
-    CData/*0:0*/ top__DOT__ResultSrc;
     CData/*1:0*/ top__DOT__ImmSrc;
     CData/*4:0*/ top__DOT__AD1;
     CData/*4:0*/ top__DOT__AD2;
     CData/*4:0*/ top__DOT__AD3;
     CData/*0:0*/ top__DOT__Data_WE;
     CData/*2:0*/ top__DOT____Vcellout__encoder__ALUctrl;
+    CData/*6:0*/ top__DOT__encoder__DOT__funct7;
     CData/*0:0*/ __Vclklast__TOP__clk;
     SData/*9:0*/ top__DOT__data_mem__DOT__short_addr;
     VL_OUT(a0,16,0);

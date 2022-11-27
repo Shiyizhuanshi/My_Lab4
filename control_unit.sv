@@ -13,7 +13,7 @@ module control_unit #(
 );
 
 logic [2:0] funct3;
-logic [6:0] funct3;
+logic [6:0] funct7;
 logic [6:0] opcode;
 assign funct3 = instr[14:12];
 assign opcode = instr[6:0];
@@ -22,17 +22,17 @@ always_comb
 
     case(opcode)
 
-    7'b0110011:    //R-type
-        case(funct3)
-            3'b000:
-            3'b001:
-            3'b010:
-            3'b011:
-            3'b100:
-            3'b101:
-            3'b110:
-            3'b111:
-            default:
+    // 7'b0110011:    //R-type
+    //     case(funct3)
+    //         3'b000:
+    //         3'b001:
+    //         3'b010:
+    //         3'b011:
+    //         3'b100:
+    //         3'b101:
+    //         3'b110:
+    //         3'b111:
+    //         default:
 
 
 
