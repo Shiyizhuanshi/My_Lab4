@@ -43,14 +43,18 @@ imm
 
 Here below are the instructions we need to implement for our cpu:
 
-<img width="980" alt="image" src="https://user-images.githubusercontent.com/100481494/204151139-724ef69b-1746-4e2b-9067-148ec4c5a174.png">
+![image](https://user-images.githubusercontent.com/100481494/204151552-ba9afd53-3290-406c-8eb3-53838dd7fded.png)
 
-<img width="980" alt="image" src="https://user-images.githubusercontent.com/100481494/204151252-6deb5314-c46e-49a9-abd3-db67b880831f.png
-">
+![image](https://user-images.githubusercontent.com/100481494/204151576-7a491f7a-15b3-4643-bd93-9ce5f26ca807.png)
 
-<img width="980" alt="image" src="https://user-images.githubusercontent.com/100481494/204151324-fdffd6bb-329e-48ee-adf2-c7b2ffe81697.png
-">
+![image](https://user-images.githubusercontent.com/100481494/204151582-6e0c5199-ebec-4b87-8e10-4d74f9712004.png)
 
-<img width="980" alt="image" src="https://user-images.githubusercontent.com/100481494/204151355-8b0c2528-c180-44da-9dc4-345d537d0bef.png
-">
+![image](https://user-images.githubusercontent.com/100481494/204151590-c6d6057b-8492-4645-b08e-7ec69c5a3d50.png)
+
+---
+
+
+
+
+
 
