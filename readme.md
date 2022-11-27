@@ -64,6 +64,16 @@ Control unit generates control signal to all other blocks, so in order to implem
 |-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Length | 1 | 1 | 3 | 1 | 4 | 1 | 1 | 2 |
 
+**ImmSrc**
+: We have six types of instructions, so ImmSrc should be 3-bit, including up to 8 types.
+
+**ALUctrl**
+: For R-Type instruciton, we have ten kinds of ALU operations, thus ALUControl should be 4-bit.
+
+**DataCtrl**
+: DataCtrl should be 2-bit as there are three kinds of operations in datamemory: byte, half, work.
+
+
 
 
 
