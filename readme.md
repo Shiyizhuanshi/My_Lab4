@@ -61,7 +61,7 @@ Control unit generates control signal to all other blocks, so in order to implem
 ##### Control signal 
 
 | Name | PCSrc | ResultSrc | ImmSrc | ALUSrc | ALUctrl | MemWrite | RegWrite | DataCtrl |
-|-----:|---|--|--|--|--|----|----|--|
+|-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Length | 1 | 1 | 3 | 1 | 4 | 1 | 1 | 2 |
 
 
