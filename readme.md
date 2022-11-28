@@ -76,7 +76,7 @@ Here below are the instructions we need to implement for our cpu:
 
 Control unit generates control signal to all other blocks, so in order to implement all the instructions, the first step should be fully understanding and specifying what control signal should be genrated under different operations.
 
-##### Control signal 
+###### Control signal 
 
 | Name | PCSrc | ResultSrc | ImmSrc | ALUSrc | ALUctrl | MemWrite | RegWrite | DataCtrl |
 |-----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -99,6 +99,25 @@ While designing the cpu, we should strictly name all the variales as same as in 
 #### ALU
 This is almost the most complicated module in our cpu.
 It not only needs to do ten kinds of arithmetric operations but also needs to generates 6 inputs to the [Control Unit](https://github.com/Shiyizhuanshi/My_Lab4#control-unit) 
+
+
+#### SignExtension
+
+This unit takes certain fields from instructions as ImmOp and sign extend it. 
+As we have in total six types of instructions, thus ImmSrc has to be 3-bit.
+
+| ImmSrc | 000 | 001 | 010 | 011 | 100 | 101 |
+|-----:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Type | I | S | B | R | U | J |
+
+
+
+#### RegisterFile
+
+
+
+
+
 
 
 
