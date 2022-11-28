@@ -25,6 +25,10 @@
 
 [ALU](https://github.com/Shiyizhuanshi/My_Lab4#alu)
 
+[SignExtension](https://github.com/Shiyizhuanshi/My_Lab4#signextension)
+
+[RegisterFile](https://github.com/Shiyizhuanshi/My_Lab4#registerfile)
+
 
 ##### Background 
 
@@ -113,15 +117,6 @@ As we have in total six types of instructions, thus ImmSrc has to be 3-bit.
 
 
 #### RegisterFile
-
-
-
-
-
-
-
-
-
 
 
 
