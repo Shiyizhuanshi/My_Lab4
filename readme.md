@@ -15,6 +15,14 @@
 
 ---
 
+#### Contents:
+
+[Background](https://github.com/Shiyizhuanshi/My_Lab4#background)
+[Main goals](https://github.com/Shiyizhuanshi/My_Lab4#main-goals)
+[Control Unit](https://github.com/Shiyizhuanshi/My_Lab4#control-unit)
+[ALU](https://github.com/Shiyizhuanshi/My_Lab4#alu)
+
+
 ##### Background 
 
 RISC-V has six types of instruction in total, they look like below:
