@@ -21,9 +21,9 @@ always_comb
     // 000 for I-Tpye
     // 001 for S-Tpye
     // 010 for B-Tpye
-    // 000 for R-Tpye ImmOp = {32'b0};
-    // 000 for U-Tpye ImmOp = { {12{instr[31]}}, instr[31:12] };
-    // 000 for J-Tpye ImmOp = { {11{instr[31]}}, instr[31], instr[19:12], instr[20], instr[30:21], 1'b0 }
+    // 011 for R-Tpye ImmOp = {32'b0};
+    // 100 for U-Tpye ImmOp = { {12{instr[31]}}, instr[31:12] };
+    // 101 for J-Tpye ImmOp = { {11{instr[31]}}, instr[31], instr[19:12], instr[20], instr[30:21], 1'b0 }
 
 
 endmodule
