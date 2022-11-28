@@ -101,8 +101,21 @@ While designing the cpu, we should strictly name all the variales as same as in 
 
 
 #### ALU
+
 This is almost the most complicated module in our cpu.
-It not only needs to do ten kinds of arithmetric operations but also needs to generates 6 inputs to the [Control Unit](https://github.com/Shiyizhuanshi/My_Lab4#control-unit) 
+It not only needs to do ten kinds of arithmetric operations but also needs to generates 3 inputs to the [Control Unit](https://github.com/Shiyizhuanshi/My_Lab4#control-unit) 
+
+
+##### ALU operations 
+
+
+##### ALU output signal 
+
+| Signal Name | EQ | Less | Sign |
+|-----:|:---:|:---:|:---:|
+| Purpose | beq & bne | blt & bge | bltu & bgeu |
+| Meaning | true for equal | true for less | true for unsign |
+
 
 
 #### SignExtension
@@ -113,6 +126,8 @@ As we have in total six types of instructions, thus ImmSrc has to be 3-bit.
 | ImmSrc | 000 | 001 | 010 | 011 | 100 | 101 |
 |-----:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Type | I | S | B | R | U | J |
+
+There should be two more situaions which are unsigned extension and zero extension.
 
 
 
