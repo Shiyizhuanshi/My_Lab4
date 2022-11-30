@@ -19,10 +19,8 @@ initial begin
         // $display(rom_array [0], rom_array [1], rom_array [2],rom_array [3]);
 end;
 
-assign short_addr = addr[7:0];
-
 always_comb
-    dout <= {rom_array [short_addr[7:0]], rom_array [short_addr[7:0]+1], rom_array [short_addr[7:0]+2],rom_array [short_addr[7:0]+3]};
+    dout <= {rom_array [addr[7:0]], rom_array [addr[7:0]+1], rom_array [addr[7:0]+2],rom_array [addr[7:0]+3]};
     // dout <= 8'h11;
 
 endmodule

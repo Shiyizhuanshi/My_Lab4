@@ -1,12 +1,11 @@
 module data_ram #(
-    parameter WIDTH = 32,
+    parameter WIDTH = 32
 )(
     input logic                clk,
     input logic                Data_WE,
     input logic  [WIDTH -1:0]  Data_addr,
     input logic [WIDTH -1:0]   Data_WD,
     output logic  [WIDTH -1:0] Data_RD
-
 );
 
 
@@ -18,7 +17,6 @@ initial begin
 end;
 
 always_comb begin
-    short_addr = Data_addr[wanted_width-1:0];
     Data_RD = {data_mem[Data_addr+3], data_mem[Data_addr+2], data_mem[Data_addr+1], data_mem[Data_addr]};
 end
 
