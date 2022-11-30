@@ -10,8 +10,7 @@ module data_ram #(
 );
 
 
-logic [:0] data_mem [2**10-1:0];
-logic [wanted_width-1:0] short_addr;
+logic [7:0] data_mem [32'hBFC00FFF:32'hBFC00000];
 
 initial begin
         $display("Loading Data_mem.");
@@ -20,15 +19,15 @@ end;
 
 always_comb begin
     short_addr = Data_addr[wanted_width-1:0];
-    Data_RD = {data_mem[short_addr+3], data_mem[short_addr+2], data_mem[short_addr+1], data_mem[short_addr]};
+    Data_RD = {data_mem[Data_addr+3], data_mem[Data_addr+2], data_mem[Data_addr+1], data_mem[Data_addr]};
 end
 
 always_ff @(posedge clk)
     if (Data_WE) begin
-    data_mem[short_addr+3] = Data_WD[31:24];
-    data_mem[short_addr+2] = Data_WD[23:16];
-    data_mem[short_addr+1] = Data_WD[15:8];
-    data_mem[short_addr] = Data_WD[7:0];
+    data_mem[Data_addr+3] = Data_WD[31:24];
+    data_mem[Data_addr+2] = Data_WD[23:16];
+    data_mem[Data_addr+1] = Data_WD[15:8];
+    data_mem[Data_addr] = Data_WD[7:0];
     end
 
 endmodule

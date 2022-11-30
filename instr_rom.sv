@@ -8,8 +8,7 @@ module instr_rom
 
 );
 
-logic [7:0] rom_array [2**8-1:0]; //Theoretically, there should be 2^32 in memmory   
-logic [7:0] short_addr;                 // but we do not need that many space, so I made to 
+logic [7:0] rom_array [32'h00001FFF:32'h00001000]; //Theoretically, there should be 2^32 in memmory                // but we do not need that many space, so I made to 
                                             // have only 256 memory spaces
 //date width should be 8bit because it is a byte addressable memory
 //so each instruction consist of four 8-bit byte
