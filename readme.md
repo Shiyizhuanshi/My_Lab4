@@ -4,12 +4,16 @@
 #### Things to do:
 
 - [x] Design a basic cpu structure (Lab4)
+
+- [ ] Implement Lab3 in our cpu 
+
 - [ ] Design cpu to implement R-Type instruction
 - [ ] Design cpu to implement I-Type instruction
 - [ ] Design cpu to implement S-Type instruction
 - [ ] Design cpu to implement B-Type instruction
 - [ ] Design cpu to implement U-Type instruction
 - [ ] Design cpu to implement J-Type instruction
+- [ ] Pipelined 
 - [ ] Design cache for cpu
 - [ ] Design bus for cpu
 
